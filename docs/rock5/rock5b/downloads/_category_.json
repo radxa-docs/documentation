@@ -1,0 +1,9 @@
+{
+  "label": "Downloads",
+  "position": 50,
+  "link": {
+    "type": "generated-index",
+	"slug": "/rock5/rock5b/downloads",
+    "description": "Downloads for ROCK 5B"
+  }
+}
