@@ -172,6 +172,56 @@ sidebar_custom_props: {
 				},
 			],
 		},
+
+		{
+			# 产品代号
+			product_code: 'rm116',
+			# 产品名
+			product_name_zh: 'CM3',
+			product_name_en: 'CM3',
+			# 产品系列
+			Product_Line_zh: '计算机模块系列',
+			Product_Line_en: 'Computer Module Series',
+			# 产品对应的所有文档
+			docs: [
+				{
+					title_zh: '新手入门指南',
+					info_zh: '从这里开始你的 CM3 之旅',
+					title_en: 'Getting Started Guide',
+					info_en: 'ROCK CM3 Certification Document',					
+					url: '/compute-module/cm3',
+				},
+				{
+					title_zh: '配件使用指南',
+					info_zh: '使用 ROCK CM3 配件',
+					title_en: 'Accessories Guide',
+					info_en: 'Using ROCK CM3 Accessories',	
+					url: '/compute-module/cm3/cm3-io-board',
+				},
+				{
+					title_zh: '编译源码指南',
+					info_zh: '编译源码',
+					title_en: 'Compile Source Guide',
+					info_en: 'Compile the Source Code',
+					url: '/compute-module/cm3/lowlevel-dev',
+				},
+				{
+					title_zh: '相关认证信息',
+					info_zh: 'ROCK CM3 认证文件',
+					title_en: 'Certification Information',
+					info_en: 'ROCK CM3 Certification Document',
+					url: '/compliance/computer-module/cm3',
+				},
+				{
+					title_zh: '官方系统镜像',
+					info_zh: '支持多种镜像下载',
+					title_en: 'Image Downloads',
+					info_en: '/compute-module/cm3/alt-os',
+					url: '',
+				},
+			],
+		},
+
 		{
 			product_name_zh: '瑞莎官方系统',
 			product_name_en: 'Radxa OS',
