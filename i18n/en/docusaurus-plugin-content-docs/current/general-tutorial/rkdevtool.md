@@ -90,7 +90,7 @@ As an example, to build the rkdeveloptool tool on a Debian Linux distribution, f
 1. Install the build dependencies.  
 
 ```bash
-sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0
+sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential g++
 ```
 
 2. Clone the source code and compile it.  
@@ -112,20 +112,6 @@ sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libus
 #### Possible problems encountered during installation
 
 Compilation error 1:
-
-```bash
-    configure: error: in `/home/radxa/rkdeveloptool'.
-    configure: error: C++ preprocessor "/lib/cpp" fails sanity check
-```
-
-This error is for a missing necessary C++ library, which can be installed with the following command:  
-
-```bash
-    sudo apt-get install build-essential
-    sudo apt-get install g++
-```
-
-Compile error 2:
 
 ```bash
 make[1]: Entrando no diretório '/home/radxa/rkdeveloptool'

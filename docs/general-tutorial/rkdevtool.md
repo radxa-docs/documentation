@@ -88,7 +88,7 @@ RK 官方驱动程序： [DriverAssitant V5.0](https://dl.radxa.com/tools/window
 1. 安装编译依赖:  
 
 ```bash
-sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0
+sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0 build-essential g++
 ```
 
 2. 克隆源码并编译:  
@@ -109,22 +109,7 @@ sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libus
 
 #### 安装中可能遇到的问题
 
-编译错误 1：
-
-```bash
-    configure: error: in `/home/radxa/rkdeveloptool':
-    configure: error: C++ preprocessor "/lib/cpp" fails sanity check
-
-```
-
-该报错为缺少必要的 C++ 库，可通过以下命令安装：  
-
-```bash
-    sudo apt-get install build-essential
-    sudo apt-get install g++
-```
-
-编译错误 2：  
+编译错误： 
 
 ```bash
 make[1]: Entrando no diretório '/home/radxa/rkdeveloptool'
