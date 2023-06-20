@@ -1,18 +1,23 @@
 ﻿---
-sidebar_label: 'Official OS'
+sidebar_label: 'Official Images'
 sidebar_position: 2
 ---
 
-# ROCK 5 Series OS
+# ROCK 5 Official Images
 
 ### Introduction
 
-The Radxa team has developed Radxa OS as the official operating system based on Debian. 
-The first official operating system image for ROCK 5A has been released.  
-If you want to try other images, please check [Third Party Images](/rock5/alt-os)。  
-***Note: Many third party images have not been officially tested and may have some problems.***
+The Radxa team has developed Radxa OS as the official operating system based on Debian.
 
-**Tip: We will post information about each release on the [Radxa Forum](https://forum.radxa.com/).**  
+If you want to try other images, please check [Third Party Images](/rock5/alt-os)
+
+:::note
+Many third party images have not been officially tested and may have some problems.
+:::
+
+:::tip
+We will post information about each release on the [Radxa Forum](https://forum.radxa.com/).
+:::
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -24,33 +29,33 @@ import TabItem from '@theme/TabItem';
 
 ### Download
 
-The following systems have been officially tested and verified by Radxa:   
+The following systems have been officially tested and verified by Radxa: 
 
-ROCK 5A: [Build 16](https://github.com/radxa-build/rock-5a/releases/download/b16/rock-5a_debian_bullseye_kde_b16.img.xz)  
+ROCK 5A: [Build 16](https://github.com/radxa-build/rock-5a/releases/download/b16/rock-5a_debian_bullseye_kde_b16.img.xz)
 
-For more images please check ： [radxa-build](https://github.com/radxa-build/)。  
+For more images please check: [radxa-build](https://github.com/radxa-build/rock-5a/releases/tag/b16)
 
-Kernel version: [5.10.110-6](https://github.com/radxa-pkg/linux-rockchip/releases/tag/5.10.110-6)  
+Kernel version: [5.10.110-6](https://github.com/radxa-pkg/linux-rockchip/releases/tag/5.10.110-6)
 
 ### Release Notice
 
-The first official release announcement for ROCK 5A can be found at the following link: 
-[System Release Notice for ROCK 5A](https://forum.radxa.com/t/230428-system-release-notice-for-rock-5a/16275)。 
+The first official release announcement for ROCK 5A can be found at the following link:
+[System Release Notice for ROCK 5A](https://forum.radxa.com/t/230428-system-release-notice-for-rock-5a/16275)
 
 ### Other alternative systems
 
 #### Android
 
-The ROCK 5A is currently adapted to Android 12 and you can download the image from the following link:  
-[ROCk 5A Android 12](https://github.com/radxa/manifests/releases/tag/Android12_rk12)  
-Additional information:  
-[Radxa Android Manifests](https://github.com/radxa/manifests)  
+The ROCK 5A is currently adapted to Android 12 and you can download the image from the following link:
+[ROCK 5A Android 12](https://github.com/radxa/manifests/releases/tag/Android12_rk12)
+Additional information:
+[Radxa Android Manifests](https://github.com/radxa/manifests)
 [Android 12 Installation Guide](https://wiki.radxa.com/Rock5/guide/android12)
 
 #### Ubuntu Server
 
-[Ubuntu Server Download](https://github.com/radxa-build/rock-5a/releases)  
-[Ubuntu Installation Guide](https://wiki.radxa.com/Rock5/linux/ubuntu)  
+[Ubuntu Server Download](https://github.com/radxa-build/rock-5a/releases)
+[Ubuntu Installation Guide](https://wiki.radxa.com/Rock5/linux/ubuntu)
 [Github Change log](https://github.com/radxa/debos-radxa/releases/latest)
 
 
@@ -61,32 +66,32 @@ Additional information:
 
 ### Download
 
-The following systems have been officially tested and verified by Radxa:   ： 
+The following systems have been officially tested and verified by Radxa:
 
-ROCK 5B: [Build 33](https://github.com/radxa-build/rock-5b/releases/download/b33/rock-5b_debian_bullseye_kde_b33.img.xz)
+ROCK 5B: [Build 36](https://github.com/radxa-build/rock-5b/releases/download/b36/rock-5b_debian_bullseye_kde_b36.img.xz)
 
-For more images please check ： [radxa-build](https://github.com/radxa-build/)。  
+For more images please check: [radxa-build](https://github.com/radxa-build/rock-5b/releases/tag/b36)
 
-Kernel version: [5.10.110-8](https://github.com/radxa-pkg/linux-rockchip/releases/tag/5.10.110-8)
+Kernel version: [5.10.110-11](https://github.com/radxa-pkg/linux-rockchip/releases/tag/5.10.110-11)
 
 ### Release Notice
 
-The official release notice for ROCK 5B can be found at the following link: 
-[System Release Notice for ROCK 5B](https://forum.radxa.com/t/230526-system-release-notice-for-rock-5b/16809)。 
+The official release notice for ROCK 5B can be found at the following link:
+[System Release Notice for ROCK 5B](https://forum.radxa.com/t/230526-system-release-notice-for-rock-5b/16809)
 
 ### Other alternative systems
 
 #### Android
-  
-[ROCk 5B Android 12](https://github.com/radxa/manifests/releases/tag/Rock-android12-20230315)  
-Additional information:  
-[Radxa Android Manifests](https://github.com/radxa/manifests)  
+
+[ROCK 5B Android 12](https://github.com/radxa/manifests/releases/tag/Rock-android12-20230315)
+Additional information:
+[Radxa Android Manifests](https://github.com/radxa/manifests)
 [Android 12 Installation Guide](https://wiki.radxa.com/Rock5/guide/android12)
 
 #### Ubuntu Server
 
-[Ubuntu Server Download](https://github.com/radxa-build/rock-5b/releases)  
-[Ubuntu Installation Guide](https://wiki.radxa.com/Rock5/linux/ubuntu)  
+[Ubuntu Server Download](https://github.com/radxa-build/rock-5b/releases)
+[Ubuntu Installation Guide](https://wiki.radxa.com/Rock5/linux/ubuntu)
 [Github Change log](https://github.com/radxa/debos-radxa/releases/latest)
 
 </TabItem>
