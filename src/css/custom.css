@@ -268,3 +268,21 @@ a:hover {
   transform: scale(.9);
   margin: 0px auto;
 }
+
+.rock_cm3_io_board_img_2 img {
+  display: block;
+  transform: scale(.9);
+  margin: 0px auto;
+}
+
+.rock_cm3_img img {
+  display: block;
+  transform: scale(.9);
+  margin: -0px auto;
+}
+
+.rock_cm3_install_io_board img {
+  display: block;
+
+  margin: -0px auto;
+}

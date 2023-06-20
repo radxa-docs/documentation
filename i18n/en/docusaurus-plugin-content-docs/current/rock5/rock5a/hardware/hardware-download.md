@@ -3,7 +3,7 @@ sidebar_label: 'Hardware Data Download'
 sidebar_position: 30
 ---
 
-# Hardware Dara Download 
+# Hardware Data Download 
 
 - ROCK 5A Schematic Download：[ROCK 5A V1.1 SCH ](https://dl.radxa.com/rock5/5a/docs/hw/radxa_rock5a_V1.1_sch.pdf)
 

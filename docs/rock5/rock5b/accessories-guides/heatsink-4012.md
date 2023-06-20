@@ -30,14 +30,14 @@ Heatsink 4012是专门为ROCK 5B量身定制的散热风扇，安装教程如图
 - **power_allocator**：系统默认是无风扇模式或DC风扇模式。确保机器在没有散热风扇的前提下依旧能稳定工作；  
 - **user_space**：手动控制散热风扇模式。用户可以根据自己的需要，通过命令终端控制散热风扇的转速；  
 - **step_wise**：自动温度调节模式。CPU在60℃以下散热风扇处于休眠状态，当CPU达到60℃以上散热风扇开始工作。  
-**注意：当ROCK 5A处于关机和睡眠状态的时候，散热风扇将不工作。**  
+**注意：当ROCK 5B处于关机和睡眠状态的时候，散热风扇将不工作。**  
 
 你可以通过命令终端"`retsup`->`Hardware`->`Thermal governor`"，用`空格键`选用模式，具体操作如下：
 
 同时按“Ctrl + Alt + T”打开终端，运行“rsetup”命令如下：
 
 ```bash
-radxa@rock-5a:~$ rsetup
+radxa@rock-5b:~$ rsetup
 ```
 
 输入密码并选择`Hardware` 进入硬件控制端界面:  
@@ -98,7 +98,7 @@ cat /sys/class/thermal/cooling_device*/type
 
 举个例子，该散热风扇的挂载在 `cooling_device1`，你将会通过`cat /sys/class/thermal/cooling_device1/type`查看到`pwm-fan`: 
 ```bash
-radxa@rock-5a: cat /sys/class/thermal/cooling_device1/type
+radxa@rock-5b: cat /sys/class/thermal/cooling_device1/type
 pwm-fan
 ```
 
@@ -106,11 +106,11 @@ pwm-fan
 
 直接打开散热风扇最高速度:
 ```
-radxa@rock-5a:~$ sudo cp /sys/class/thermal/cooling_device1/max_state /sys/class/thermal/cooling_device1/cur_state
+radxa@rock-5b:~$ sudo cp /sys/class/thermal/cooling_device1/max_state /sys/class/thermal/cooling_device1/cur_state
 ```
 您可以通过以下指令查看散热风扇支持多少转速：
 ```
-radxa@rock-5a:~$ cat /sys/class/thermal/cooling_device1/max_state
+radxa@rock-5b:~$ cat /sys/class/thermal/cooling_device1/max_state
 4
 ```
 
