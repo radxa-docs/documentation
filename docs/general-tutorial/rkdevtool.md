@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'RK开发工具的安装及使用'
+sidebar_label: 'Rockchip开发工具'
 sidebar_position: 2
 ---
 
@@ -28,12 +28,10 @@ RK 官方驱动程序： [DriverAssitant V5.0](https://dl.radxa.com/tools/window
 使用 RK 驱动助手工具来安装驱动。 
 在此过程中，不需要连接您的 Rockchip 设备，只需下载压缩包并解压 DriverAssitant V5.0.zip。 
 然后双击 DriverInstall.exe，启动工具并点击 Install Driver 安装驱动。 
-如果你已经为其他 Rockchip 设备安装过 Rockchip USB 驱动，请先点击 "卸载驱动"。
-
+如果你已经为其他 Rockchip 设备安装过 Rockchip USB 驱动，请先点击 "卸载驱动"。  
 ![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
 
 以下是安装完成后打开 RKDevTool 并连接进入 Maskrom 设备的示例：  
-
 ![RK Dev interface](/img/rock5a/on-maskrom.webp)
 
 ### 烧写系统镜像
@@ -43,13 +41,13 @@ RK 官方驱动程序： [DriverAssitant V5.0](https://dl.radxa.com/tools/window
 
 2. 将设备通过 OTG 接入主机并启动进入 Maskrom 模式  
 :::caution
-**每个主板进入 Maskrom 模式的方式会有所区别，通用的方法为：移除所有存储介质，连接OTG线并上电，进入 Maskrom 模式后再安装存储介质，通常还需要按下 Maskrom 按键或短接 Maskrom 引脚。**  
+每个主板进入 Maskrom 模式的方式会有所区别，通用的方法为：移除所有存储介质，连接OTG线并上电，进入 Maskrom 模式后再安装存储介质，通常还需要按下 Maskrom 按键或短接 Maskrom 引脚。  
 :::
 ![RKDevTool zh maskrom](/img/configuration/rkdevtool-zh-maskrom.webp)
 
 3. 烧录配置  
 :::caution
-**此处选择的镜像应该为 img 格式，下载的镜像默认为压缩包格式，需要解压缩后再进行烧录。**  
+此处选择的镜像应该为 img 格式，下载的镜像默认为压缩包格式，需要解压缩后再进行烧录。  
 :::
 在 storage 选项中选择需要安装系统的介质  
 ![RKDevTool zh storage](/img/configuration/rkdevtool-zh-storage.webp)  
@@ -68,14 +66,13 @@ RK 官方驱动程序： [DriverAssitant V5.0](https://dl.radxa.com/tools/window
 
 以下是使用 RKDevTool 烧录 Bootloader 的步骤：  
 
-1. 获取[对应平台 bootloader 和 U-boot image](#spi-镜像及-loader-文件)  
+1. 获取[对应平台 bootloader 和 U-Boot image](#spi-镜像及-loader-文件)  
 
 2. 主板进入 Maskrom 模式， 选择对应的 bootloader 和 SPI image  
 ![RKDevTool zh SPINOR](/img/configuration/rkdevtool-zh-spinor.webp) 
 
 3. 点击执行，等待烧写完成  
 ![RKDevTool zh SPI complete](/img/configuration/rkdevtool-zh-spi-complete.webp) 
-
 
 </TabItem>
 <TabItem value="rkdeveloptool" label="Linux/MacOS: rkdeveloptool">
@@ -91,7 +88,7 @@ RK 官方驱动程序： [DriverAssitant V5.0](https://dl.radxa.com/tools/window
 1. 安装编译依赖:  
 
 ```bash
-sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf
+sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0
 ```
 
 2. 克隆源码并编译:  
@@ -127,28 +124,7 @@ sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf
     sudo apt-get install g++
 ```
 
-编译错误 2：
-
-```bash
-   ./configure: line 4269: syntax error near unexpected token `LIBUSB1,libusb-1.0'
-   ./configure: line 4269: `PKG_CHECK_MODULES(LIBUSB1,libusb-1.0)'
-```
-
-你可以安装 pkg-config libusb-1.0:  
-
-```bash
-   sudo apt-get install pkg-config libusb-1.0
-```
-
-然后重新执行以下操作：  
-
-```bash
-   autoreconf -i
-   ./configure
-   make
-```
-
-编译错误 3：  
+编译错误 2：  
 
 ```bash
 make[1]: Entrando no diretório '/home/radxa/rkdeveloptool'
@@ -254,9 +230,13 @@ rkdeveloptool db loaderfile
 # output
 Downloading bootloader succeeded.
 ```
-其中 `loaderfile` 文件在不同的SoC平台均有所不同，详情请查看[各个平台的 U-boot image 文件](#spi-镜像及-loader-文件)。 
+其中 `loaderfile` 文件在不同的SoC平台均有所不同，详情请查看[各个平台的 U-Boot image 文件](#spi-镜像及-loader-文件)。 
 
 #### 写入 SPI flash
+
+:::caution
+写入 SPI flash 前需要先加载 loader 文件
+:::
 
 ```bash
 sudo  rkdeveloptool wl 0 spiimage
@@ -265,7 +245,7 @@ sudo  rkdeveloptool wl 0 spiimage
 Write LBA from file (100%)
 ```
 
-其中 `spiimage` 文件每个产品都不同，详情请查看[各个平台的 U-boot image 文件](#spi-镜像及-loader-文件)。  
+其中 `spiimage` 文件每个产品都不同，详情请查看[各个平台的 U-Boot image 文件](#spi-镜像及-loader-文件)。  
 
 #### 烧录主板镜像：  
 
@@ -278,11 +258,10 @@ rkdeveloptool wl 0 imagefile
 </TabItem>
 </Tabs>
 
-
-## SPI U-boot 镜像及 Loader 文件
+## SPI U-Boot 镜像及 Loader 文件
 
  - ROCK 3 系列：  
-	- [CM3 IO SPI U-boot 镜像](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/radxa-cm3-io-idbloader-g8684d740b9f.img)
+	- [CM3 IO SPI U-Boot 镜像](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/radxa-cm3-io-idbloader-g8684d740b9f.img)
 	- [rk356x_spl_loader_ddr1056_v1.10.111.bin](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/rk356x_spl_loader_ddr1056_v1.10.111.bin)
 	- [rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin](https://dl.radxa.com/rock3/images/loader/rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin)
 
@@ -290,8 +269,8 @@ rkdeveloptool wl 0 imagefile
 	- [rk3399_loader_v1.27.126.bin](https://dl.radxa.com/rockpi4/images/loader/rk3399_loader_v1.27.126.bin)
 
  - ROCK 5 系列：  
-	- [ROCK 5B SPI U-boot 镜像](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gbf47e81-20230607.img)
-	- [ROCK 5A SPI U-boot 镜像](https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rock-5a-spi-image-g4b32117-20230605.img)
+	- [ROCK 5B SPI U-Boot 镜像](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gbf47e81-20230607.img)
+	- [ROCK 5A SPI U-Boot 镜像](https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rock-5a-spi-image-g4b32117-20230605.img)
 	- [rk3588_spl_loader_v1.08.111.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/rk3588_spl_loader_v1.08.111.bin)
 
 

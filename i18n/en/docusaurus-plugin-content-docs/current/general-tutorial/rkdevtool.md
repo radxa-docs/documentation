@@ -1,5 +1,5 @@
 ﻿---
-sidebar_label: 'Installation and Usage for RK Dev Tools'
+sidebar_label: 'Rockchip Dev Tools'
 sidebar_position: 2
 ---
 
@@ -30,11 +30,9 @@ Use the RK Driver Assistant tool to install the driver.
 There is no need to connect your Rockchip device for this process, just download the zip package and extract DriverAssitant V5.0.zip. 
 Then double-click DriverInstall.exe to launch the tool and click Install Driver to install the driver. 
 If you have already installed the Rockchip USB driver for another Rockchip device, please click on "Uninstall Driver" first.
-
 ![RK Driver](/img/configuration/RK-Driver-Assistant-Install-Uninstall.webp)
 
 The following is an example of opening the RKDevTool and connecting into the Maskrom device after the installation is complete:  
-
 ![RK Dev interface](/img/rock5a/on-maskrom.webp)
 
 ### Burning the system image
@@ -44,21 +42,21 @@ The following is an example of opening the RKDevTool and connecting into the Mas
 
 2. Connect the device to the host via OTG and boot into Maskrom mode  
 :::caution
-**The way to enter Maskrom mode will vary from board to board, the common method is to remove all storage media, 
-connect the OTG cable and power up, enter Maskrom mode and then install the storage media, usually you also need to press the Maskrom button or connect the Maskrom pin.**   
+The way to enter Maskrom mode will vary from board to board, the common method is to remove all storage media, 
+connect the OTG cable and power up, enter Maskrom mode and then install the storage media, usually you also need to press the Maskrom button or connect the Maskrom pin.  
 :::
 ![RKDevTool maskrom](/img/configuration/rkdevtool-maskrom.webp)
 
 3. Flash configuration  
 :::caution
-**The image selected here should be in img format, the downloaded image is in zip format by default and needs to be unzipped before flashing. **  
+The image selected here should be in img format, the downloaded image is in zip format by default and needs to be unzipped before flashing.   
 :::
 In the storage option, select the media you want to install the system on  
 ![RKDevTool storage](/img/configuration/rkdevtool-storage.webp)  
-Select [loader](#spi-u-boot-image-and-loader-file) and the img image file by clicking on the blank cell configuration 
+Select [loader](#spi-u-boot-image-and-loader-file) and the img image file by clicking on the blank cell configuration  
 ![RKDevTool choose](/img/configuration/rkdevtool-choose.webp) 
 
-4. Check the `Write by Address` box and click `run`
+4. Check the `Write by Address` box and click `run`  
 ![RKDevTool flashing](/img/configuration/rkdevtool-flashing.webp)  
 
 5. Wait for the write to complete, then the device will automatically reboot into the system  
@@ -70,14 +68,13 @@ When using an NVME SSD as the system boot disk, you need to flash the bootloader
 
 Here are the steps for burning the bootloader using RKDevTool: 
 
-1. Get the [corresponding platform bootloader and U-boot image](#spi-u-boot-image-and-loader-file). 
+1. Get the [corresponding platform bootloader and U-Boot image](#spi-u-boot-image-and-loader-file). 
 
 2. Enter Maskrom mode on the motherboard and select the corresponding bootloader and SPI image  
 ![RKDevTool SPINOR](/img/configuration/rkdevtool-spinor.webp) 
 
 3. Click `run` and wait for the write to complete  
 ![RKDevTool SPI complete](/img/configuration/rkdevtool-spi-complete.webp) 
-
 
 </TabItem>
 <TabItem value="rkdeveloptool" label="Linux/MacOS: rkdeveloptool">
@@ -90,11 +87,10 @@ On Linux/MacOS, there is no dedicated package and we need to compile and build t
 
 As an example, to build the rkdeveloptool tool on a Debian Linux distribution, follow these instructions:  
 
-
 1. Install the build dependencies.  
 
 ```bash
-sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf
+sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf pkg-config libusb-1.0
 ```
 
 2. Clone the source code and compile it.  
@@ -113,7 +109,6 @@ sudo apt-get install libudev-dev libusb-1.0-0-dev dh-autoreconf
  sudo cp rkdeveloptool /usr/local/bin/
 ```
 
-
 #### Possible problems encountered during installation
 
 Compilation error 1:
@@ -131,28 +126,6 @@ This error is for a missing necessary C++ library, which can be installed with t
 ```
 
 Compile error 2:
-
-```bash
-   . /configure: line 4269: syntax error near unexpected token ``LIBUSB1,libusb-1.0''
-   . /configure: line 4269: ``PKG_CHECK_MODULES(LIBUSB1,libusb-1.0)''
-````
-
-
-You can install pkg-config libusb-1.0.  
-
-```bash
-   sudo apt-get install pkg-config libusb-1.0
-```
-
-Then re-execute the following:  
-
-```bash
-   autoreconf -i
-   . /configure
-   make
-```
-
-Compile error 3: 
 
 ```bash
 make[1]: Entrando no diretório '/home/radxa/rkdeveloptool'
@@ -258,12 +231,12 @@ rkdeveloptool db loaderfile
 # output
 Downloading bootloader succeeded.
 ```
-The ``loaderfile`` file varies between SoC platforms, see [U-boot image file for each platform](#spi-image and -loader-file) for details.  
+The ``loaderfile`` file varies between SoC platforms, see [U-Boot image file for each platform](#spi-u-boot-image-and-loader-file) for details.  
 
 #### Writing to SPI flash
 
 :::caution
-**You should flash loader file first before writing to SPI flash.**
+You should flash loader file first before writing to SPI flash.
 :::
 
 ```bash
@@ -273,8 +246,7 @@ sudo rkdeveloptool wl 0 spiimage
 Write LBA from file (100%)
 ```
 
-where the `spiimage` file is different for each product, see [U-boot image files for each platform](#spi-u-boot-image-and-loader-file) for details.  
-
+where the `spiimage` file is different for each product, see [U-Boot image files for each platform](#spi-u-boot-image-and-loader-file) for details.  
 
 #### To flash the system OS image:  
 
@@ -289,10 +261,10 @@ where `imagefile` is the img image to be burned for the motherboard, which needs
 </TabItem>
 </Tabs>
 
-## SPI U-boot image and Loader file
+## SPI U-Boot image and Loader file
 
  - ROCK 3 Series:  
-	- [CM3 IO SPI U-boot image](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/radxa-cm3-io-idbloader-g8684d740b9f.img)
+	- [CM3 IO SPI U-Boot image](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/radxa-cm3-io-idbloader-g8684d740b9f.img)
 	- [rk356x_spl_loader_ddr1056_v1.10.111.bin](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/rk356x_spl_loader_ddr1056_v1.10.111.bin)
 	- [rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin](https://dl.radxa.com/rock3/images/loader/rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin)
 
@@ -300,8 +272,8 @@ where `imagefile` is the img image to be burned for the motherboard, which needs
 	- [rk3399_loader_v1.27.126.bin](https://dl.radxa.com/rockpi4/images/loader/rk3399_loader_v1.27.126.bin)
 
  - ROCK 5 Series:  
-	- [ROCK 5B SPI U-boot image](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gbf47e81-20230607.img)
-	- [ROCK 5A SPI U-boot image](https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rock-5a-spi-image-g4b32117-20230605.img)
+	- [ROCK 5B SPI U-Boot image](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gbf47e81-20230607.img)
+	- [ROCK 5A SPI U-Boot image](https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rock-5a-spi-image-g4b32117-20230605.img)
 	- [rk3588_spl_loader_v1.08.111.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/rk3588_spl_loader_v1.08.111.bin)
 
 
