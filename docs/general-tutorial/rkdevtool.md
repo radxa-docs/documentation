@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'RK 开发工具的使用'
+sidebar_label: 'RK开发工具的使用'
 sidebar_position: 2
 ---
 
@@ -18,11 +18,15 @@ Rockchip 在 Windows 平台上提供了 [RKDevTool](rk-dev-tool#windows) 工具�
 ![RKDevTool zh](/img/configuration/rkdevtool-zh.webp)
 
 2. 将设备启动进入 Maskrom 模式  
-**注意：每个主板进入 Maskrom 模式的方式会有所区别，通用的方法为：移除所有存储介质，连接OTG线并上电，进入 Maskrom 模式后再安装存储介质。**  
+:::caution
+**每个主板进入 Maskrom 模式的方式会有所区别，通用的方法为：移除所有存储介质，连接OTG线并上电，进入 Maskrom 模式后再安装存储介质，通常还需要按下Maskrom按键或短接Maskrom引脚。**  
+:::
 ![RKDevTool zh maskrom](/img/configuration/rkdevtool-zh-maskrom.webp)
 
 3. 烧录配置  
-**注意：此处选择的镜像应该为 img 格式，下载默认为压缩包，需要解压缩后再进行烧录。**  
+:::caution
+**此处选择的镜像应该为 img 格式，下载默认为压缩包，需要解压缩后再进行烧录。**  
+:::
 在 storage 选项中选择需要安装系统的介质  
 ![RKDevTool zh storage](/img/configuration/rkdevtool-zh-storage.webp)  
 点击空白单元格配置选择 [loader](#spi-镜像及-loader-文件) 和 img 镜像文件 
@@ -87,6 +91,7 @@ TagSPL:                 tagspl <tag> <U-Boot SPL>
 ```bash
 rkdeveloptool ld
 
+# output
 DevNo=1 Vid=0x2207,Pid=0x350b,LocationID=106 Maskrom
 ```
 
@@ -101,19 +106,21 @@ rkdeveloptool rd
 ```bash
 rkdeveloptool db loaderfile
 
+# output
 Downloading bootloader succeeded.
 ```
-其中 `loaderfile` 文件在不同的SoC平台均有所不同，详情请查看[各个平台的 u-boot image 文件](#spi-镜像及-loader-文件)。 
+其中 `loaderfile` 文件在不同的SoC平台均有所不同，详情请查看[各个平台的 U-boot image 文件](#spi-镜像及-loader-文件)。 
 
 ### 写入 SPI flash
 
 ```bash
 sudo  rkdeveloptool wl 0 spiimage
 
+# output
 Write LBA from file (100%)
 ```
 
-其中 `spiimage` 文件每个板子都不同，详情请查看[各个平台的 u-boot image 文件](#spi-镜像及-loader-文件)。  
+其中 `spiimage` 文件每个产品都不同，详情请查看[各个平台的 U-boot image 文件](#spi-镜像及-loader-文件)。  
 
 ### 将镜像烧录进主板：  
 
@@ -121,12 +128,12 @@ Write LBA from file (100%)
 rkdeveloptool wl 0 imagefile
 ```
 
-其中 `imagefile` 为主板所需烧录的镜像，可在对应产品系列的镜像下载页下载系统镜像。
+其中 `imagefile` 为主板所需烧录的 img 镜像，可在对应产品系列的镜像下载页下载系统镜像后解压获取。
 
 ## SPI 镜像及 Loader 文件
 
  - ROCK 3 系列：  
-	- [CM3 IO SPI u-boot 镜像](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/radxa-cm3-io-idbloader-g8684d740b9f.img)
+	- [CM3 IO SPI U-boot 镜像](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/radxa-cm3-io-idbloader-g8684d740b9f.img)
 	- [rk356x_spl_loader_ddr1056_v1.10.111.bin](https://dl.radxa.com/rock3/images/loader/radxa-cm3-io/rk356x_spl_loader_ddr1056_v1.10.111.bin)
 	- [rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin](https://dl.radxa.com/rock3/images/loader/rk356x_spl_loader_ddr1056_v1.12.109_no_check_todly.bin)
 
@@ -134,8 +141,8 @@ rkdeveloptool wl 0 imagefile
 	- [rk3399_loader_v1.27.126.bin](https://dl.radxa.com/rockpi4/images/loader/rk3399_loader_v1.27.126.bin)
 
  - ROCK 5 系列：  
-	- [ROCK 5B SPI u-boot 镜像](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gbf47e81-20230607.img)
-	- [ROCK 5A SPI u-boot 镜像](https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rock-5a-spi-image-g4b32117-20230605.img)
+	- [ROCK 5B SPI U-boot 镜像](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/release/rock-5b-spi-image-gbf47e81-20230607.img)
+	- [ROCK 5A SPI U-boot 镜像](https://dl.radxa.com/rock5/sw/images/loader/rock-5a/rock-5a-spi-image-g4b32117-20230605.img)
 	- [rk3588_spl_loader_v1.08.111.bin](https://dl.radxa.com/rock5/sw/images/loader/rock-5b/rk3588_spl_loader_v1.08.111.bin)
 
 
