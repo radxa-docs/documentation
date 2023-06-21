@@ -1,0 +1,9 @@
+{
+  "label": "Computer Module Family",
+  "position": 10,
+  "link": {
+    "type": "generated-index",
+    "slug": "/compliance/rock3",
+    "description": "Radxa ROCK CM3 series compliance"
+  }
+}

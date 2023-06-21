@@ -57,7 +57,9 @@ ROCK 5A provides a high-speed B2B interface for eMMC / SPI Flash, which can be u
 ## USB Power
 Finally, plug in the power and start it up. The power interface of RACK 5A is type-c.  
 
-**If the Power LED is off, please check whether the device is connected properly and whether the charger is damaged.**  
+- When the device is off, press the power button and the device will turn on. When working, the power green light will stay on and the status blue light will flash.
+- When the device is off or sleeping, the power green light and status blue light will be turned off.
+  
 **If the device still cannot work after checking the power, please contact us.**
 ![alt rock5a](/img/rock5a/rock5a_power.webp)
 

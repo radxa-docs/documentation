@@ -1,5 +1,5 @@
 ---
-sidebar_label: 'Power off'
+sidebar_label: 'Power on/off'
 sidebar_position: 50
 ---
 
@@ -45,7 +45,7 @@ As shown in the figure, the place where the arrow is pointing to is the power ke
 
 ![ROCK5A Power](/img/rock5a/rock5a-power.webp)
 
-- When the device is on, press the power key and the screen will pop up the user state selection. You can choose sleep, restart, shutdown or lag out. When you turn off the device, power green led and status blue led will be off.
+- When the device is on, press the power key and the screen will pop up the user state selection. You can choose sleep, restart, shutdown or lag out. When you turn off the device or the device in sleep mode, power green led and status blue led will be off.
 
 ![ROCK5A Power](/img/rock5a/rock5a-power-status.webp)
 
