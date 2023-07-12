@@ -59,6 +59,9 @@
   "sidebar.tutorialSidebar.category.产品认证信息.link.generated-index.description": {
     "message": "Compliance for Radxa products"
   },
+  "sidebar.tutorialSidebar.category.定频认证指导": {
+    "message": "Fixed-frequency Compliance Guidance"
+  },
   "sidebar.tutorialSidebar.category.初级开发教程": {
     "message": "Lowlevel Developement"
   },
